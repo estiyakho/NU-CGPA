@@ -18,6 +18,7 @@ const shareBtn = document.getElementById('share-btn');
 let currentState = {
     dept: '',
     year: '',
+    syllabus: '2013-2014',
     subjects: [],
     theme: localStorage.getItem('theme') || 'dark-mode'
 };
@@ -37,6 +38,7 @@ themeToggle.addEventListener('click', () => {
 startBtn.addEventListener('click', () => {
     const deptSelect = document.getElementById('department');
     const yearSelect = document.getElementById('year');
+    const syllabusSelect = document.getElementById('syllabus');
     
     if (!deptSelect.value) {
         alert('Please select a department first.');
@@ -45,6 +47,7 @@ startBtn.addEventListener('click', () => {
 
     currentState.dept = deptSelect.value;
     currentState.year = yearSelect.value;
+    currentState.syllabus = syllabusSelect.value;
     
     showCalculator();
 });
@@ -68,8 +71,9 @@ function showCalculator() {
     selectionSection.classList.add('hidden');
     calculatorSection.classList.remove('hidden');
     
-    document.getElementById('current-dept-display').textContent = nuData.departments[currentState.dept]?.name || 'Custom Department';
-    document.getElementById('current-year-display').textContent = `${currentState.year}${getOrdinal(currentState.year)} Year`;
+    const syllabusData = nuData.syllabi[currentState.syllabus];
+    document.getElementById('current-dept-display').textContent = syllabusData[currentState.dept]?.name || 'Custom Department';
+    document.getElementById('current-year-display').textContent = `${currentState.year}${getOrdinal(currentState.year)} Year (${currentState.syllabus})`;
     
     loadInitialSubjects();
 }
@@ -82,7 +86,8 @@ function getOrdinal(n) {
 
 function loadInitialSubjects() {
     subjectsContainer.innerHTML = '';
-    const deptData = nuData.departments[currentState.dept];
+    const syllabusData = nuData.syllabi[currentState.syllabus];
+    const deptData = syllabusData[currentState.dept];
     const initialSubjects = deptData?.years[currentState.year] || [];
     
     initialSubjects.forEach(sub => addSubjectRow(sub.name, sub.code, sub.credits));
