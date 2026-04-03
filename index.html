@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NU CGPA Calculator - National University Bangladesh</title>
+    <meta name="description" content="Calculate your National University Bangladesh GPA and CGPA with ease. A premium, mobile-friendly calculator with official NU subjects and grading system.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts: Outfit for a premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-mode">
+    <div class="glass-bg"></div>
+    
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="nu-blue">NU</span> <span class="nu-red">CGPA</span>
+            </div>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <i data-lucide="sun" id="sun-icon"></i>
+                <i data-lucide="moon" id="moon-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="selection-section" class="card fade-in">
+            <h2>Select Details</h2>
+            <div class="input-group">
+                <label for="department">Department</label>
+                <select id="department">
+                    <option value="" disabled selected>Choose Department</option>
+                    <option value="CSE">CSE (Honours)</option>
+                    <option value="Accounting">Accounting (Honours)</option>
+                    <option value="Management">Management (Honours)</option>
+                    <option value="English">English (Honours)</option>
+                    <option value="Custom">Custom / Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="year">Year</label>
+                <select id="year">
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+            </div>
+            <button id="start-btn" class="primary-btn">Start Calculating</button>
+        </section>
+
+        <section id="calculator-section" class="hidden">
+            <div class="calc-header">
+                <button id="back-btn" class="icon-btn"><i data-lucide="arrow-left"></i></button>
+                <div class="calc-info">
+                    <h3 id="current-dept-display">Department</h3>
+                    <p id="current-year-display">1st Year</p>
+                </div>
+            </div>
+
+            <div id="subjects-container" class="subjects-list">
+                <!-- Subject rows will be injected here -->
+            </div>
+
+            <div class="actions">
+                <button id="add-subject-btn" class="secondary-btn"><i data-lucide="plus"></i> Add Subject</button>
+            </div>
+
+            <div class="results-card glass">
+                <div class="result-item">
+                    <span>Total Credits</span>
+                    <span id="total-credits">0</span>
+                </div>
+                <div class="result-item gpa-highlight">
+                    <span>GPA</span>
+                    <span id="calculated-gpa">0.00</span>
+                </div>
+                <button id="calculate-cgpa-btn" class="accent-btn">Calculate CGPA</button>
+            </div>
+        </section>
+
+        <section id="cgpa-section" class="hidden">
+            <div class="calc-header">
+                <button id="back-to-calc-btn" class="icon-btn"><i data-lucide="arrow-left"></i></button>
+                <h3>Cumulative GPA (CGPA)</h3>
+            </div>
+            <div class="cgpa-inputs">
+                <div class="year-row">
+                    <span>1st Year</span>
+                    <input type="number" placeholder="GPA" step="0.01" class="year-gpa" data-year="1">
+                    <input type="number" placeholder="Credits" class="year-credits" data-year="1">
+                </div>
+                <div class="year-row">
+                    <span>2nd Year</span>
+                    <input type="number" placeholder="GPA" step="0.01" class="year-gpa" data-year="2">
+                    <input type="number" placeholder="Credits" class="year-credits" data-year="2">
+                </div>
+                <div class="year-row">
+                    <span>3rd Year</span>
+                    <input type="number" placeholder="GPA" step="0.01" class="year-gpa" data-year="3">
+                    <input type="number" placeholder="Credits" class="year-credits" data-year="3">
+                </div>
+                <div class="year-row">
+                    <span>4th Year</span>
+                    <input type="number" placeholder="GPA" step="0.01" class="year-gpa" data-year="4">
+                    <input type="number" placeholder="Credits" class="year-credits" data-year="4">
+                </div>
+            </div>
+            <div class="results-card glass">
+                <div class="result-item cgpa-highlight">
+                    <span>Final CGPA</span>
+                    <span id="calculated-cgpa">0.00</span>
+                </div>
+                <button id="share-btn" class="primary-btn"><i data-lucide="share-2"></i> Share Results</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 National University Bangladesh CGPA Calculator</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
