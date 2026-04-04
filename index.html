@@ -29,22 +29,26 @@
         <section id="selection-section" class="card fade-in">
             <h2>Select Details</h2>
             <div class="input-group">
-                <label for="syllabus"><i class="fas fa-book"></i> Syllabus</label>
-                <select id="syllabus">
-                    <option value="2013-2014" selected>2013-2014</option>
-                    <option value="2024-2025">2024-2025</option>
+                <label for="program"><i data-lucide="graduation-cap"></i> Program</label>
+                <select id="program">
+                    <option value="" disabled selected>Choose Program</option>
+                    <option value="Honours">Honours</option>
+                    <option value="Degree">Degree (Pass)</option>
+                    <option value="Masters">Masters</option>
+                    <option value="Professional">Professional</option>
                 </select>
             </div>
             <div class="input-group">
-                <label for="department"><i class="fas fa-university"></i> Department</label>
-                <select id="department">
-                    <option value="" disabled selected>Choose Department</option>
-                    <option value="CSE">CSE (Honours)</option>
-                    <option value="Accounting">Accounting (Honours)</option>
-                    <option value="Management">Management (Honours)</option>
-                    <option value="English">English (Honours)</option>
-                    <option value="Marketing">Marketing (Honours)</option>
-                    <option value="Custom">Custom / Other</option>
+                <label for="department"><i data-lucide="university"></i> Department</label>
+                <select id="department" disabled>
+                    <option value="" disabled selected>Choose Program First</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="syllabus"><i data-lucide="book"></i> Syllabus</label>
+                <select id="syllabus">
+                    <option value="2013-2014" selected>Syllabus (2013-2014)</option>
+                    <option value="2024-2025">Syllabus (2024-2025)</option>
                 </select>
             </div>
             <div class="input-group">

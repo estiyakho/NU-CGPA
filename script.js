@@ -16,6 +16,7 @@ const shareBtn = document.getElementById('share-btn');
 
 // State
 let currentState = {
+    program: '',
     dept: '',
     year: '',
     syllabus: '2013-2014',
@@ -35,16 +36,40 @@ themeToggle.addEventListener('click', () => {
 });
 
 // App Flow
-startBtn.addEventListener('click', () => {
-    const deptSelect = document.getElementById('department');
-    const yearSelect = document.getElementById('year');
-    const syllabusSelect = document.getElementById('syllabus');
+const programSelect = document.getElementById('program');
+const deptSelect = document.getElementById('department');
+const yearSelect = document.getElementById('year');
+const syllabusSelect = document.getElementById('syllabus');
+
+programSelect.addEventListener('change', () => {
+    const programId = programSelect.value;
+    currentState.program = programId;
     
+    // Clear and Enable Department Select
+    deptSelect.innerHTML = '<option value="" disabled selected>Choose Department</option>';
+    deptSelect.disabled = false;
+    
+    // Populate Departments based on Program
+    const depts = nuData.programs[programId] || [];
+    depts.forEach(dept => {
+        const option = document.createElement('option');
+        option.value = dept.id;
+        option.textContent = dept.name;
+        deptSelect.appendChild(option);
+    });
+});
+
+startBtn.addEventListener('click', () => {
+    if (!programSelect.value) {
+        alert('Please select a program first.');
+        return;
+    }
     if (!deptSelect.value) {
         alert('Please select a department first.');
         return;
     }
 
+    currentState.program = programSelect.value;
     currentState.dept = deptSelect.value;
     currentState.year = yearSelect.value;
     currentState.syllabus = syllabusSelect.value;

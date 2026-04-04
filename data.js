@@ -11,6 +11,29 @@ const nuData = {
         { grade: 'D', point: 2.00, range: '40-44%' },
         { grade: 'F', point: 0.00, range: '0-39%' },
     ],
+    programs: {
+        'Honours': [
+            { id: 'CSE', name: 'CSE (Honours)' },
+            { id: 'Accounting', name: 'Accounting (Honours)' },
+            { id: 'Management', name: 'Management (Honours)' },
+            { id: 'English', name: 'English (Honours)' },
+            { id: 'Marketing', name: 'Marketing (Honours)' },
+            { id: 'Custom', name: 'Custom / Other' }
+        ],
+        'Degree': [
+            { id: 'BBS_Degree', name: 'BBS (Degree)' },
+            { id: 'BA_Degree', name: 'BA (Degree)' },
+            { id: 'BSc_Degree', name: 'BSc (Degree)' },
+            { id: 'BSS_Degree', name: 'BSS (Degree)' },
+            { id: 'Custom', name: 'Custom / Other' }
+        ],
+        'Masters': [
+            { id: 'Custom', name: 'Custom / Other' }
+        ],
+        'Professional': [
+            { id: 'Custom', name: 'Custom / Other' }
+        ]
+    },
     syllabi: {
         '2013-2014': {
             'CSE': {
@@ -215,7 +238,11 @@ const nuData = {
                         { code: '242318', name: 'Viva-voce', credits: 4 }
                     ]
                 }
-            }
+            },
+            'BBS_Degree': { name: 'BBS (Degree)', years: {} },
+            'BA_Degree': { name: 'BA (Degree)', years: {} },
+            'BSc_Degree': { name: 'BSc (Degree)', years: {} },
+            'BSS_Degree': { name: 'BSS (Degree)', years: {} }
         },
         '2024-2025': {
             'Accounting': {
@@ -273,7 +300,11 @@ const nuData = {
                         { code: '219901', name: 'History of Bangladesh: Language, Culture and Identity', credits: 4 }
                     ]
                 }
-            }
+            },
+            'BBS_Degree': { name: 'BBS (Degree)', years: {} },
+            'BA_Degree': { name: 'BA (Degree)', years: {} },
+            'BSc_Degree': { name: 'BSc (Degree)', years: {} },
+            'BSS_Degree': { name: 'BSS (Degree)', years: {} }
         }
     }
 };
