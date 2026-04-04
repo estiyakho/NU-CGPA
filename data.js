@@ -245,6 +245,26 @@ const nuData = {
             'BSS_Degree': { name: 'BSS (Degree)', years: {} }
         },
         '2024-2025': {
+            'CSE': {
+                name: 'Computer Science and Engineering',
+                years: {
+                    1: [
+                        { code: '510201', name: 'Structured Programming Language', credits: 3 },
+                        { code: '510202', name: 'Structured Programming Language Lab', credits: 1.5 },
+                        { code: '510203', name: 'Electrical and Electronic Circuit', credits: 3 },
+                        { code: '510204', name: 'Electrical and Electronic Circuit Lab', credits: 1.5 },
+                        { code: '510205', name: 'Calculus', credits: 3 },
+                        { code: '510207', name: 'Physics', credits: 3 },
+                        { code: '510209', name: 'English', credits: 3 },
+                        { code: '510211', name: 'Discrete Mathematics', credits: 3 },
+                        { code: '510213', name: 'Digital Systems Design', credits: 3 },
+                        { code: '510212', name: 'Digital Systems Lab', credits: 1.5 },
+                        { code: '510215', name: 'Linear Algebra', credits: 3 },
+                        { code: '510217', name: 'Statistics and Probability', credits: 3 },
+                        { code: '510219', name: 'History of the Emergence of Independent Bangladesh', credits: 3 }
+                    ]
+                }
+            },
             'Accounting': {
                 name: 'Accounting (Honours)',
                 years: {
@@ -267,11 +287,7 @@ const nuData = {
                         { code: '211105', name: 'Introduction to Poetry', credits: 4 },
                         { code: '211107', name: 'Introduction to Prose: Fiction and Non-Fiction:', credits: 4 },
                         { code: '219901', name: 'History of Bangladesh: Language, Culture and Identity', credits: 4 },
-                        { code: '219903', name: 'Information and Communication Technology', credits: 3 },
-                        { code: '219904', name: 'Lab: Information and Communication Technology', credits: 1 },
-                        { code: '212009', name: 'Introducing Sociology', credits: 4 },
-                        { code: '212111', name: 'Introduction to Social Work', credits: 4 },
-                        { code: '211909', name: 'Introduction to Political Theory', credits: 4 }
+                        { code: '219903', name: 'Information and Communication Technology', credits: 3 }
                     ]
                 }
             },

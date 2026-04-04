@@ -49,6 +49,10 @@ programSelect.addEventListener('change', () => {
     deptSelect.innerHTML = '<option value="" disabled selected>Choose Department</option>';
     deptSelect.disabled = false;
     
+    // Reset Syllabus
+    syllabusSelect.innerHTML = '<option value="" disabled selected>Choose Department First</option>';
+    syllabusSelect.disabled = true;
+    
     // Populate Departments based on Program
     const depts = nuData.programs[programId] || [];
     depts.forEach(dept => {
@@ -57,6 +61,33 @@ programSelect.addEventListener('change', () => {
         option.textContent = dept.name;
         deptSelect.appendChild(option);
     });
+});
+
+deptSelect.addEventListener('change', () => {
+    const deptId = deptSelect.value;
+    currentState.dept = deptId;
+    
+    // Clear and Enable Syllabus Select
+    syllabusSelect.innerHTML = '<option value="" disabled selected>Choose Syllabus</option>';
+    syllabusSelect.disabled = false;
+    
+    // Find available syllabi for this department
+    const availableSyllabi = Object.keys(nuData.syllabi).filter(s => nuData.syllabi[s][deptId]);
+    
+    availableSyllabi.forEach(s => {
+        const option = document.createElement('option');
+        option.value = s;
+        option.textContent = `Syllabus (${s})`;
+        syllabusSelect.appendChild(option);
+    });
+
+    if (availableSyllabi.length === 1) {
+        syllabusSelect.value = availableSyllabi[0];
+        currentState.syllabus = availableSyllabi[0];
+    } else if (availableSyllabi.length === 0) {
+        syllabusSelect.innerHTML = '<option value="Custom" selected>Custom / Other</option>';
+        currentState.syllabus = 'Custom';
+    }
 });
 
 startBtn.addEventListener('click', () => {
